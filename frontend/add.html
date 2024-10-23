@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Record - Football League Management</title>
+    <link rel="stylesheet" href="css/styles.css"> <!-- Ensure the correct path to your CSS file -->
+</head>
+
+<body>
+    <div class="container">
+        <h1>Add New Record</h1>
+
+        <h2>Add Player</h2>
+        <form action="../Backend/footballinsert.php" method="POST">
+            <label for="playerID">Player ID:</label>
+            <input type="text" id="playerID" name="playerID" required><br>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required><br>
+            <label for="position">Position:</label>
+            <input type="text" id="position" name="position" required><br>
+            <button type="submit" name="addPlayer">Add Player</button>
+        </form>
+
+        <h2>Add League</h2>
+        <form action="../Backend/footballinsert.php" method="POST">
+            <label for="leagueID">League ID:</label>
+            <input type="text" id="leagueID" name="leagueID" required><br>
+            <label for="number_of_clubs">Number of Clubs:</label>
+            <input type="number" id="number_of_clubs" name="number_of_clubs" required><br>
+            <button type="submit" name="addLeague">Add League</button>
+        </form>
+
+        <h2>Add Club</h2>
+        <form action="../Backend/footballinsert.php" method="POST">
+            <label for="clubID">Club ID:</label>
+            <input type="text" id="clubID" name="clubID" required><br>
+            <label for="number_of_players">Number of Players:</label>
+            <input type="number" id="number_of_players" name="number_of_players" required><br>
+            <button type="submit" name="addClub">Add Club</button>
+        </form>
+
+        <h2>Add Match</h2>
+        <form action="../Backend/footballinsert.php" method="POST">
+            <label for="matchID">Match ID:</label>
+            <input type="text" id="matchID" name="matchID" required><br>
+            <label for="team_home">Home Team:</label>
+            <input type="text" id="team_home" name="team_home" required><br>
+            <label for="team_away">Away Team:</label>
+            <input type="text" id="team_away" name="team_away" required><br>
+            <button type="submit" name="addMatch">Add Match</button>
+        </form>
+
+        <a href="index.html">Back to Dashboard</a>
+    </div>
+
+    <script>
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                const formData = new FormData(this);
+
+                try {
+                    const response = await fetch(this.action, {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        alert(result.message); // Show success message
+                        this.reset(); // Optionally reset the form
+                    } else {
+                        alert(result.message); // Show error message
+                    }
+                } catch (error) {
+                    alert('An error occurred while processing the request.');
+                }
+            });
+        });
+    </script>
+    
+</body>
+
+</html>

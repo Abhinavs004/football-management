@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football League Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Football League Management System</h1>
+
+    <div>
+        <h2>Players</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Player ID</th>
+                    <th>Age</th>
+                    <th>Position</th>
+                    <th>Apps</th>
+                    <th>Goals</th>
+                    <th>Assists</th>
+                    <th>Nationality</th>
+                    <th>Team ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php include '../Backend/view_players.php'; ?>
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <h2>Leagues</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>League ID</th>
+                    <th>Number of Clubs</th>
+                    <th>Top Scorer ID</th>
+                    <th>Best Goalkeeper ID</th>
+                    <th>Country</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php include '../Backend/view_leagues.php'; ?>
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <h2>Clubs</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Club ID</th>
+                    <th>Number of Players</th>
+                    <th>Goals Scored</th>
+                    <th>Clean Sheets</th>
+                    <th>Captain ID</th>
+                    <th>Stadium</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php include '../Backend/view_clubs.php'; ?>
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <h2>Matches</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Match ID</th>
+                    <th>Home Team</th>
+                    <th>Away Team</th>
+                    <th>Home Goals</th>
+                    <th>Away Goals</th>
+                    <th>Venue</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php include '../Backend/view_matches.php'; ?>
+            </tbody>
+        </table>
+    </div>
+
+    <a href="add.html">Add New Records</a>
+</body>
+
+</html>
